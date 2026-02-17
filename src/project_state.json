@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a professional, high-quality e-commerce website/template (Amazon/Shopify-like) intended for resale, including logo/email areas and support for up to 100 products with product images.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal modern store logo mark, monochrome, clean geometry (store-logo.dim_512x512.png)\n- High-detail e-commerce hero banner with modern abstract retail aesthetic, neutral palette (hero-banner.dim_1600x600.png)\n- High-detail category tile image: electronics theme, studio lighting (category-electronics.dim_800x800.png)\n- High-detail category tile image: fashion theme, studio lighting (category-fashion.dim_800x800.png)\n- High-detail category tile image: home & kitchen theme, studio lighting (category-home.dim_800x800.png)\n- High-detail product photo set, studio background, premium look (product-01.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-02.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-03.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-04.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-05.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-06.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-07.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-08.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-09.dim_1024x1024.png)\n- High-detail product photo set, studio background, premium look (product-10.dim_1024x1024.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-professional-e-commerce-storefront-ui-amazon-shopify-like-with-a-consistent-high-quality-visual-theme-colors-typography-spacing-component-style-suitable-for-resale-as-a-premium-template",
+      "title": "Create a professional e-commerce storefront UI (Amazon/Shopify-like) with a consistent, high-quality visual theme (colors, typography, spacing, component style) suitable for resale as a premium template.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-complete-storefront-information-architecture-with-key-pages-home-product-listing-catalog-product-detail-cart-checkout-mock-no-payment-and-contact",
+      "title": "Implement a complete storefront information architecture with key pages: Home, Product Listing (catalog), Product Detail, Cart, Checkout (mock/no payment), and Contact.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-prominent-branding-header-that-includes-a-dedicated-logo-placement-area-and-a-clean-search-bar-ui-only-consistent-with-an-amazon-shopify-like-store-experience",
+      "title": "Add a prominent branding header that includes a dedicated logo placement area and a clean search bar (UI only) consistent with an Amazon/Shopify-like store experience.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-email-contact-area-in-the-site-footer-and-or-contact-page-including-a-visible-business-email-display-and-a-contact-form-ui-submission-can-be-stored-as-an-inquiry-record",
+      "title": "Add an email/contact area in the site (footer and/or Contact page) including a visible business email display and a contact form UI (submission can be stored as an inquiry record).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-product-catalog-support-for-up-to-100-products-including-product-images-title-price-category-rating-optional-and-short-description-with-a-clean-catalog-grid-and-filtering-sorting-ui",
+      "title": "Implement product catalog support for up to 100 products, including product images, title, price, category, rating (optional), and short description, with a clean catalog grid and filtering/sorting UI.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-seed-the-application-with-a-curated-set-of-100-demo-products-suitable-placeholder-data-for-resale-template-that-reference-locally-generated-static-product-images-no-external-image-hotlinking-required",
+      "title": "Seed the application with a curated set of 100 demo products (suitable placeholder data for resale template) that reference locally generated static product images (no external image hotlinking required).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-shopping-cart-functionality-add-to-cart-from-product-detail-and-optionally-catalog-adjust-quantity-remove-items-and-show-subtotal-estimated-total",
+      "title": "Implement shopping cart functionality: add to cart from product detail (and optionally catalog), adjust quantity, remove items, and show subtotal/estimated total.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-polished-home-page-with-a-hero-section-featured-categories-collections-and-featured-products-using-high-detail-generated-imagery-that-matches-the-theme",
+      "title": "Create a polished Home page with a hero section, featured categories/collections, and featured products, using high-detail generated imagery that matches the theme.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-static-generated-images-to-the-project-under-frontend-public-assets-generated-and-render-them-in-the-ui-logo-hero-and-product-imagery",
+      "title": "Add static generated images to the project under frontend/public/assets/generated and render them in the UI (logo, hero, and product imagery).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create an Amazon/Shopify-like professional e-commerce website layout/template suitable for resale.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Support up to 100 products (product pages/listing) as part of the site structure.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Include product image support/display in the store design.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add dedicated logo placement area in the website header/branding sections.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add an email/contact area/field in the website (e.g., header/footer/contact page).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "ProCommerce Store",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

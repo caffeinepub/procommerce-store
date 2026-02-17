@@ -1,0 +1,384 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "ProCommerce Store — Frontend Storefront Template",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Deliver a cohesive, premium storefront theme with responsive layout and consistent UI styling.",
+      "acceptanceCriteria": [
+        "Storefront pages use one coherent theme (no mismatched styles)",
+        "Layout is responsive for mobile/tablet/desktop",
+        "User-facing text is in English"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles entry to establish a consistent theme foundation (typography scale, spacing rhythm, background/foreground, link/button defaults) aligned with Tailwind + shadcn/ui tokens. Use the shadcn-ui component library styling conventions for consistency. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Refine Tailwind theme settings (container, extended colors/typography, responsive breakpoints usage guidance) to support a premium, consistent storefront look across pages."
+        },
+        {
+          "path": "frontend/src/components/layout/StoreLayout.tsx",
+          "operation": "create",
+          "description": "Create a reusable layout wrapper that applies consistent page structure (header, main container, footer) and responsive spacing. Compose shadcn-ui primitives for consistent layout building blocks. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement complete storefront page architecture and navigation for Home, Catalog, Product Detail, Cart, Checkout (mock), and Contact.",
+      "acceptanceCriteria": [
+        "Navigation links to Home, Catalog, Cart, and Contact are present and functional",
+        "Product Detail pages are accessible from the catalog",
+        "Cart page shows selected items and totals",
+        "Checkout is present and clearly marked as a mock/demo (no real payment processing)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell and route wiring for Home, Catalog, Product Detail, Cart, Checkout, and Contact. Ensure all routes render within StoreLayout and are reachable via navigation."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create Home page view container and wire to StoreLayout; keep copy in English and align styling with the global theme."
+        },
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "create",
+          "description": "Create Product Listing (catalog) page with a grid layout, filter/sort controls, and links to Product Detail routes. Compose shadcn-ui components for inputs, selects, and cards. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailPage.tsx",
+          "operation": "create",
+          "description": "Create Product Detail page view with product image, title, price, description, category, optional rating, and add-to-cart CTA; ensure it is navigable from catalog."
+        },
+        {
+          "path": "frontend/src/pages/CartPage.tsx",
+          "operation": "create",
+          "description": "Create Cart page view showing cart items, quantity controls, remove actions, and computed totals; include a clear path to Checkout."
+        },
+        {
+          "path": "frontend/src/pages/CheckoutPage.tsx",
+          "operation": "create",
+          "description": "Create mock Checkout page UI (no payment) with a clear demo disclaimer, order summary, and a non-functional 'Place Order' action suitable for template resale."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create Contact page view containing business email display and contact form UI (wired to backend submission per REQ-4)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a prominent branding header with static logo placement and a clean search bar UI that works well on mobile.",
+      "acceptanceCriteria": [
+        "Header includes a visible logo area (renders an image from static assets)",
+        "Header includes a search input (frontend filtering of catalog is acceptable)",
+        "Header remains usable on mobile (collapses appropriately)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "create",
+          "description": "Implement a responsive storefront header with a logo image loaded from generated assets, primary navigation links, cart link/indicator, and a search input. Compose shadcn-ui components (e.g., input, button, sheet/dropdown) for a polished, mobile-friendly header. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/StoreLayout.tsx",
+          "operation": "modify",
+          "description": "Wire the new Header into the global layout so it appears consistently on all storefront pages."
+        },
+        {
+          "path": "frontend/src/state/searchParams.ts",
+          "operation": "create",
+          "description": "Add lightweight shared state utilities (URL query param helpers or context) to keep the header search input synchronized with the catalog filtering experience."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Provide visible business email and a validated contact form UI that submits inquiries via backend function calls.",
+      "acceptanceCriteria": [
+        "Footer and/or Contact page displays a business email address field/section",
+        "Contact form includes at least name, email, and message fields with validation",
+        "Submitting the form creates an inquiry that is persisted in the backend and can be retrieved via a backend query method"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "create",
+          "description": "Create a footer that includes a visible business email section and consistent secondary navigation styling. Compose shadcn-ui typography primitives for a clean premium footer. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/StoreLayout.tsx",
+          "operation": "modify",
+          "description": "Wire the Footer into the global layout so the business email is visible site-wide."
+        },
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "create",
+          "description": "Implement a contact form UI with name, email, and message fields, client-side validation, and submit/reset states. Use shadcn-ui form-related components for consistent UX. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Render business email display and the ContactForm component; on submit, call the backend submitInquiry capability via the frontend backend client wrapper using React Query."
+        },
+        {
+          "path": "frontend/src/services/inquiries.ts",
+          "operation": "create",
+          "description": "Add a small service layer that exposes 'submit inquiry' and optional 'fetch inquiry' calls through the existing backend interface, designed to be used with React Query (mutations/queries)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Display up to 100 products with images and metadata, providing catalog grid plus filtering and sorting UI.",
+      "acceptanceCriteria": [
+        "Backend exposes query methods to list products and get product details",
+        "Frontend catalog supports displaying up to 100 products without layout breaking",
+        "Each product card shows an image, title, and price at minimum",
+        "Catalog includes at least one filter (e.g., category) and one sort option (e.g., price)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/services/products.ts",
+          "operation": "create",
+          "description": "Create product data access utilities that call the backend getProducts capability and provide helpers for client-side filtering/sorting for up to 100 items (category filter and price sort)."
+        },
+        {
+          "path": "frontend/src/components/products/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create a polished product card showing product image, title, and price (and optionally rating/category) with a link to Product Detail. Compose shadcn-ui card/button primitives. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/products/ProductGrid.tsx",
+          "operation": "create",
+          "description": "Create a responsive product grid component optimized for up to 100 products without layout breaking, including loading/empty states (React Query-friendly)."
+        },
+        {
+          "path": "frontend/src/components/products/CatalogControls.tsx",
+          "operation": "create",
+          "description": "Create filtering/sorting UI controls (category filter + price sort) and integrate with header search term if present. Use shadcn-ui select/input components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "modify",
+          "description": "Wire React Query product list loading, render CatalogControls + ProductGrid, and ensure product detail navigation works from each ProductCard."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailPage.tsx",
+          "operation": "modify",
+          "description": "Load product data from React Query product list (or fetch/derive from cached list) and render full product detail with image and metadata."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Seed a curated set of 100 demo products referencing local generated images, ensuring the catalog is populated on first run without external services.",
+      "acceptanceCriteria": [
+        "A first-time deploy shows a populated catalog with 100 products",
+        "Product images load from frontend static assets",
+        "No dependency on external databases or external image hosting is required to view the demo catalog"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/demoProducts.ts",
+          "operation": "create",
+          "description": "Add curated placeholder demo product dataset (100 items) with titles, categories, descriptions, prices, optional ratings, and imageUrl fields that reference local generated assets under frontend/public/assets/generated (reusing the provided product-01..product-10 images across the 100 products)."
+        },
+        {
+          "path": "frontend/src/services/demoSeeder.ts",
+          "operation": "create",
+          "description": "Implement a frontend seeding routine that, on first load, calls backend initializeDemoProducts and/or addProduct using the 100 demo products, guarded by a client-side flag to avoid repeated seeding; designed for use with React Query and safe to run without external dependencies."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the demo seeding routine to run on initial app mount (or first Home/Catalog visit) so first-time deploy shows a populated catalog; keep the user experience smooth with a non-blocking loading indicator."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement shopping cart behavior: add items, adjust quantity, remove items, and compute subtotal/estimated totals.",
+      "acceptanceCriteria": [
+        "Users can add a product to the cart and see it appear in Cart page",
+        "Users can change quantities and see totals update",
+        "Users can remove items from the cart"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/state/cart.tsx",
+          "operation": "create",
+          "description": "Create a CartProvider (React Context) with cart state, actions (add/update/remove/clear), derived totals, and localStorage persistence so the cart survives refresh."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap routed pages with CartProvider so cart state is available across Header, Product Detail, and Cart pages."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailPage.tsx",
+          "operation": "modify",
+          "description": "Wire 'Add to cart' CTA to CartProvider actions; optionally include quantity selector prior to adding."
+        },
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "modify",
+          "description": "Optionally support quick-add to cart from product cards while keeping UX clean and premium."
+        },
+        {
+          "path": "frontend/src/pages/CartPage.tsx",
+          "operation": "modify",
+          "description": "Implement quantity adjustment controls, remove actions, and subtotal/estimated total calculations; ensure totals update immediately."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Show cart entry point in the header (link and item count indicator) and ensure it remains usable on mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create a polished Home page with hero, featured collections, and featured products using generated imagery.",
+      "acceptanceCriteria": [
+        "Home page contains a hero banner area, at least one featured category/collection section, and a featured products section",
+        "Featured products link to their Product Detail pages",
+        "Hero and/or category visuals use generated static assets"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/HeroSection.tsx",
+          "operation": "create",
+          "description": "Create a hero section that renders the generated hero banner image and premium English copy with clear CTAs to the catalog. Compose shadcn-ui button/typography components for a polished look. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/home/FeaturedCategories.tsx",
+          "operation": "create",
+          "description": "Create featured category/collection tiles using generated category images and links to the catalog with category pre-filter applied."
+        },
+        {
+          "path": "frontend/src/components/home/FeaturedProducts.tsx",
+          "operation": "create",
+          "description": "Create a featured products section showing a curated subset of products (from React Query product list) and linking to Product Detail pages. Reuse ProductCard for visual consistency."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Compose HeroSection, FeaturedCategories, and FeaturedProducts into a cohesive responsive Home page that matches the overall theme and uses generated imagery."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add and render required generated static images (logo, hero, categories, and product images) from frontend/public/assets/generated.",
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated",
+        "Header logo renders from the generated assets path",
+        "Home hero renders from the generated assets path",
+        "Products render images from the generated assets path (direct static file references)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/store-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/store-logo.dim_512x512.png for use in the header logo area."
+        },
+        {
+          "path": "frontend/public/assets/generated/hero-banner.dim_1600x600.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/hero-banner.dim_1600x600.png for use in the Home hero."
+        },
+        {
+          "path": "frontend/public/assets/generated/category-electronics.dim_800x800.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/category-electronics.dim_800x800.png for featured category tiles."
+        },
+        {
+          "path": "frontend/public/assets/generated/category-fashion.dim_800x800.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/category-fashion.dim_800x800.png for featured category tiles."
+        },
+        {
+          "path": "frontend/public/assets/generated/category-home.dim_800x800.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/category-home.dim_800x800.png for featured category tiles."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-01.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-01.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-02.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-02.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-03.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-03.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-04.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-04.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-05.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-05.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-06.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-06.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-07.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-07.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-08.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-08.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-09.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-09.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/public/assets/generated/product-10.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add generated asset file at frontend/public/assets/generated/product-10.dim_1024x1024.png for product imagery."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Render the header logo from frontend/public/assets/generated/store-logo.dim_512x512.png and ensure it scales cleanly across breakpoints."
+        },
+        {
+          "path": "frontend/src/components/home/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Render the hero banner from frontend/public/assets/generated/hero-banner.dim_1600x600.png and ensure responsive cropping/contain behavior aligns with the theme."
+        },
+        {
+          "path": "frontend/src/data/demoProducts.ts",
+          "operation": "modify",
+          "description": "Ensure all demo products reference the local generated product images (frontend/public/assets/generated/product-01.dim_1024x1024.png through frontend/public/assets/generated/product-10.dim_1024x1024.png) directly via their imageUrl fields."
+        }
+      ]
+    }
+  ]
+}

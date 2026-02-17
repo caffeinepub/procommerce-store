@@ -1,0 +1,195 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-professional-e-commerce-storefront-ui-amazon-shopify-like-with-a-consistent-high-quality-visual-theme-colors-typography-spacing-component-style-suitable-for-resale-as-a-premium-template",
+      "featureTitle": "Create a professional e-commerce storefront UI (Amazon/Shopify-like) with a consistent, high-quality visual theme (colors, typography, spacing, component style) suitable for resale as a premium template.",
+      "files": [
+        "frontend/src/components/layout/StoreLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-complete-storefront-information-architecture-with-key-pages-home-product-listing-catalog-product-detail-cart-checkout-mock-no-payment-and-contact",
+      "featureTitle": "Implement a complete storefront information architecture with key pages: Home, Product Listing (catalog), Product Detail, Cart, Checkout (mock/no payment), and Contact.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/CartPage.tsx",
+        "frontend/src/pages/CatalogPage.tsx",
+        "frontend/src/pages/CheckoutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/ProductDetailPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-prominent-branding-header-that-includes-a-dedicated-logo-placement-area-and-a-clean-search-bar-ui-only-consistent-with-an-amazon-shopify-like-store-experience",
+      "featureTitle": "Add a prominent branding header that includes a dedicated logo placement area and a clean search bar (UI only) consistent with an Amazon/Shopify-like store experience.",
+      "files": [
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/components/layout/StoreLayout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-email-contact-area-in-the-site-footer-and-or-contact-page-including-a-visible-business-email-display-and-a-contact-form-ui-submission-can-be-stored-as-an-inquiry-record",
+      "featureTitle": "Add an email/contact area in the site (footer and/or Contact page) including a visible business email display and a contact form UI (submission can be stored as an inquiry record).",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx",
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/components/layout/StoreLayout.tsx",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-product-catalog-support-for-up-to-100-products-including-product-images-title-price-category-rating-optional-and-short-description-with-a-clean-catalog-grid-and-filtering-sorting-ui",
+      "featureTitle": "Implement product catalog support for up to 100 products, including product images, title, price, category, rating (optional), and short description, with a clean catalog grid and filtering/sorting UI.",
+      "files": [
+        "frontend/src/components/products/CatalogControls.tsx",
+        "frontend/src/components/products/ProductCard.tsx",
+        "frontend/src/components/products/ProductGrid.tsx",
+        "frontend/src/pages/CatalogPage.tsx",
+        "frontend/src/pages/ProductDetailPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-seed-the-application-with-a-curated-set-of-100-demo-products-suitable-placeholder-data-for-resale-template-that-reference-locally-generated-static-product-images-no-external-image-hotlinking-required",
+      "featureTitle": "Seed the application with a curated set of 100 demo products (suitable placeholder data for resale template) that reference locally generated static product images (no external image hotlinking required).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/data/demoProducts.ts",
+        "frontend/src/services/demoSeeder.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-shopping-cart-functionality-add-to-cart-from-product-detail-and-optionally-catalog-adjust-quantity-remove-items-and-show-subtotal-estimated-total",
+      "featureTitle": "Implement shopping cart functionality: add to cart from product detail (and optionally catalog), adjust quantity, remove items, and show subtotal/estimated total.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/pages/CartPage.tsx",
+        "frontend/src/pages/CatalogPage.tsx",
+        "frontend/src/pages/ProductDetailPage.tsx",
+        "frontend/src/state/cart.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-polished-home-page-with-a-hero-section-featured-categories-collections-and-featured-products-using-high-detail-generated-imagery-that-matches-the-theme",
+      "featureTitle": "Create a polished Home page with a hero section, featured categories/collections, and featured products, using high-detail generated imagery that matches the theme.",
+      "files": [
+        "frontend/src/components/home/FeaturedCategories.tsx",
+        "frontend/src/components/home/FeaturedProducts.tsx",
+        "frontend/src/components/home/HeroSection.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-static-generated-images-to-the-project-under-frontend-public-assets-generated-and-render-them-in-the-ui-logo-hero-and-product-imagery",
+      "featureTitle": "Add static generated images to the project under frontend/public/assets/generated and render them in the UI (logo, hero, and product imagery).",
+      "files": [
+        "frontend/src/components/home/HeroSection.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/data/demoProducts.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

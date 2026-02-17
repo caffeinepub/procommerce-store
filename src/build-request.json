@@ -1,0 +1,222 @@
+{
+  "kind": "build_request",
+  "title": "Professional Amazon/Shopify-like E-commerce Website Template (Up to 100 Products)",
+  "projectName": "ProCommerce Store",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a professional e-commerce storefront UI (Amazon/Shopify-like) with a consistent, high-quality visual theme (colors, typography, spacing, component style) suitable for resale as a premium template.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "High quality, high detail make website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Storefront pages use one coherent theme (no mismatched styles)",
+        "Layout is responsive for mobile/tablet/desktop",
+        "User-facing text is in English"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a complete storefront information architecture with key pages: Home, Product Listing (catalog), Product Detail, Cart, Checkout (mock/no payment), and Contact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Ai make website to e-commerce website like Amazon/ shophy store"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation links to Home, Catalog, Cart, and Contact are present and functional",
+        "Product Detail pages are accessible from the catalog",
+        "Cart page shows selected items and totals",
+        "Checkout is present and clearly marked as a mock/demo (no real payment processing)"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a prominent branding header that includes a dedicated logo placement area and a clean search bar (UI only) consistent with an Amazon/Shopify-like store experience.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "And logo space"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header includes a visible logo area (renders an image from static assets)",
+        "Header includes a search input (frontend filtering of catalog is acceptable)",
+        "Header remains usable on mobile (collapses appropriately)"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add an email/contact area in the site (footer and/or Contact page) including a visible business email display and a contact form UI (submission can be stored as an inquiry record).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "And logo space and email"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Footer and/or Contact page displays a business email address field/section",
+        "Contact form includes at least name, email, and message fields with validation",
+        "Submitting the form creates an inquiry that is persisted in the backend and can be retrieved via a backend query method"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement product catalog support for up to 100 products, including product images, title, price, category, rating (optional), and short description, with a clean catalog grid and filtering/sorting UI.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "And only 100 products add page and",
+          "Professional store image add"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes query methods to list products and get product details",
+        "Frontend catalog supports displaying up to 100 products without layout breaking",
+        "Each product card shows an image, title, and price at minimum",
+        "Catalog includes at least one filter (e.g., category) and one sort option (e.g., price)"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Seed the application with a curated set of 100 demo products (suitable placeholder data for resale template) that reference locally generated static product images (no external image hotlinking required).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "And only 100 products add page and",
+          "Professional store image add"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A first-time deploy shows a populated catalog with 100 products",
+        "Product images load from frontend static assets",
+        "No dependency on external databases or external image hosting is required to view the demo catalog"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement shopping cart functionality: add to cart from product detail (and optionally catalog), adjust quantity, remove items, and show subtotal/estimated total.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "e-commerce website like Amazon/ shophy store"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can add a product to the cart and see it appear in Cart page",
+        "Users can change quantities and see totals update",
+        "Users can remove items from the cart"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create a polished Home page with a hero section, featured categories/collections, and featured products, using high-detail generated imagery that matches the theme.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Best",
+          "High quality, high detail make website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page contains a hero banner area, at least one featured category/collection section, and a featured products section",
+        "Featured products link to their Product Detail pages",
+        "Hero and/or category visuals use generated static assets"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add static generated images to the project under frontend/public/assets/generated and render them in the UI (logo, hero, and product imagery).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Professional store image add",
+          "And logo space"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated",
+        "Header logo renders from the generated assets path",
+        "Home hero renders from the generated assets path",
+        "Products render images from the generated assets path (direct static file references)"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use only the provided stack: Motoko single-actor backend and React+TypeScript frontend with Tailwind/Shadcn and React Query.",
+    "Do not edit any files under frontend/src/components/ui or other immutable paths listed by the system; compose UI components instead.",
+    "No external databases or third-party backend services."
+  ],
+  "nonGoals": [
+    "Real payment processing (Stripe/PayPal) and order fulfillment/shipping integrations",
+    "Real-time features (WebSockets, live chat)",
+    "Third-party authentication providers beyond Internet Identity (not required for this template)",
+    "Admin dashboard unless explicitly requested later"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal modern store logo mark, monochrome, clean geometry (store-logo.dim_512x512.png)",
+      "High-detail e-commerce hero banner with modern abstract retail aesthetic, neutral palette (hero-banner.dim_1600x600.png)",
+      "High-detail category tile image: electronics theme, studio lighting (category-electronics.dim_800x800.png)",
+      "High-detail category tile image: fashion theme, studio lighting (category-fashion.dim_800x800.png)",
+      "High-detail category tile image: home & kitchen theme, studio lighting (category-home.dim_800x800.png)",
+      "High-detail product photo set, studio background, premium look (product-01.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-02.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-03.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-04.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-05.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-06.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-07.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-08.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-09.dim_1024x1024.png)",
+      "High-detail product photo set, studio background, premium look (product-10.dim_1024x1024.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "User-facing text should be English."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [
+      "Wants a professional, high-detail Amazon/Shopify-like e-commerce website template suitable for resale, including logo/email areas and up to 100 products with images."
+    ],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

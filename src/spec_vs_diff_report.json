@@ -1,0 +1,85 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-17T07:38:12.621Z",
+  "summary": "Diff adds a Motoko backend with product/inquiry storage plus a React storefront shell (routing, layout, header/footer), catalog grid with filtering/sorting, cart UI/state usage, home section components, and a contact form wired to backend mutation. Key gaps remain around product detail retrieval API and demo product seeding/image paths.",
+  "missing_requirements": [
+    {
+      "id": "REQ-5",
+      "requirement": "Backend exposes query methods to list products and get product details.",
+      "reason": "Backend implements getProducts() but no query method to fetch a single product by id (e.g., getProduct/getProductById) is present in the shown backend actor.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Seed the application with a curated set of 100 demo products that reference locally generated static product images; first-time deploy shows populated catalog with 100 products.",
+      "reason": "Backend product map starts empty and requires an explicit initializeDemoProducts() call; no evidence of automatic initialization on first deploy. Additionally, seeded imageUrl values point to \"images/<id>.jpg\" rather than the required frontend static generated assets path.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity authentication provider/hooks added and used to create authenticated/anonymous actors.",
+      "reason": "BuildRequest did not require authentication (and explicitly notes third-party auth beyond Internet Identity is not required for this template). Adding II is extra scope not requested by any REQ.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Footer includes an outbound marketing/referral link to caffeine.ai with UTM parameters.",
+      "reason": "BuildRequest does not request any external referral/marketing links in the template.",
+      "evidence": [
+        "frontend/src/components/layout/Footer.tsx"
+      ]
+    },
+    {
+      "description": "Backend provides addProduct() mutation for arbitrary product insertion.",
+      "reason": "BuildRequest requires listing and getting product details plus seeding demo products; it does not request an API for adding products from the client.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/contact/ContactForm.tsx",
+    "frontend/src/components/home/FeaturedCategories.tsx",
+    "frontend/src/components/home/FeaturedProducts.tsx",
+    "frontend/src/components/home/HeroSection.tsx",
+    "frontend/src/components/layout/Footer.tsx",
+    "frontend/src/components/layout/Header.tsx",
+    "frontend/src/components/layout/StoreLayout.tsx",
+    "frontend/src/components/products/CatalogControls.tsx",
+    "frontend/src/components/products/ProductCard.tsx",
+    "frontend/src/components/products/ProductGrid.tsx",
+    "frontend/src/data/demoProducts.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/CartPage.tsx",
+    "frontend/src/pages/CatalogPage.tsx",
+    "frontend/src/pages/CheckoutPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/ProductDetailPage.tsx",
+    "frontend/src/services/demoSeeder.ts",
+    "frontend/src/state/cart.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
